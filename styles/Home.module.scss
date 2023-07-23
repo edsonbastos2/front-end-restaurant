@@ -21,11 +21,15 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    margin-top: 2rem;
     padding: 2rem 1.5rem;
 
     @media (max-width: 620px) {
       width: 90%;
+    }
+
+    h1 {
+      color: var(--white);
+      margin-bottom: 1rem;
     }
 
     form {

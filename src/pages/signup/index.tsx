@@ -1,22 +1,26 @@
 import Header from 'next/head'
-import styles from '../../styles/Home.module.scss'
+import styles from '../../../styles/Home.module.scss'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/Button'
 import Link from  'next/link'
 
 
 
-export default function Home() {
+export default function Signup() {
   return (
     <>
       <Header>
-        <title>Pizzaria nova - Faça seu login</title>
+        <title>Faça seu login</title>
       </Header>
       <div className={styles.container}>
           <h1 className={styles.logo}>Sua<span>Logo</span></h1>
         <div className={styles.login}>
-
+            <h1>Cadastro de usuário</h1>
           <form>
+            <Input
+              placeholder='Digite seu nome'
+              type='text'
+            />
             <Input
               placeholder='Digite seu e-mail'
               type='text'
@@ -30,12 +34,10 @@ export default function Home() {
               type='submit'
               loading={false}
             >
-              Acessar
+              Cadastrar
             </Button>
           </form>
-          <Link href='/signup' className={styles.text}>
-              Não tenho cadastro!Cadastre-se
-          </Link>
+          <Link href='/' className={styles.text}>Já tenho cadastro! login</Link>
         </div>
       </div>
     </>
