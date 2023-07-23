@@ -1,4 +1,4 @@
-import { useContext, FormEvent } from 'react'
+import { useContext, FormEvent, useState } from 'react'
 import Header from 'next/head'
 import styles from '../../styles/Home.module.scss'
 import { Input } from '@/components/ui/input'
@@ -12,13 +12,18 @@ export default function Home() {
 
   const { signIn } = useContext(AuthContext)
 
-  const user = {
-    email: '',
-    password:''
-  }
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [loading, setLoading] = useState(false)
 
   async function handleLogin(event: FormEvent) {
     event.preventDefault()
+
+    const user = {
+      email,
+      password
+    }
+
     await signIn(user)
   }
 
@@ -35,10 +40,14 @@ export default function Home() {
             <Input
               placeholder='Digite seu e-mail'
               type='text'
+              value={email}
+              onChange={(e) => setEmail(e.target.value) }
             />
             <Input
               placeholder='Digite sua senha'
               type='password'
+              value={password}
+              onChange={(e) => setPassword(e.target.value) }
             />
 
             <Button
